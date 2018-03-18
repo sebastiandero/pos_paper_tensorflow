@@ -67,7 +67,7 @@ Deep learning is a part of machine learning that uses Artificial Neural Networks
 ANNs are made up of nodes and connections. The nodes add up all incoming connections and when it reaches a certain treshhold,
 the sum is used as the output of the node. The incoming connections all have a weight assigned to them which the input is multiplied with.
 
-These weights are what makes ANNs "`smart`", as they are adjusted to provide the desired output from the node
+These weights are what makes ANNs "`smart`", as they are adjusted to provide the desired output from the node.
 
 ===== Back propagation
 Back propagation is the fancy term for adjusting the weights through the whole network.
