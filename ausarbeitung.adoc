@@ -15,8 +15,8 @@ Even though it abstracts much of the needed mathematical knowledge for creating 
 that provide any useful functionality, there is still quite a learning curve for being able to use
 this library productively.
 
-A knowledge of the different algorithms that are used in data science aswell as hyper parameter
-tuning is needed. A knowledge of statistics is also very useful. It is also very important that you 
+Knowledge of the different algorithms that are used in data science aswell as hyper parameter
+tuning and of statistics is very useful. It is also very important that you 
 know how to clean your data and what defines useful data, so that you can feed your TensorFlow setups
 a good training and testing dataset. The best algorithms still need good data to be able to provide any 
 useful result.
@@ -53,7 +53,7 @@ This allows for safe and scientific computation in python.
 
 But even with these libraries reinventing the *_wheel_*(get it?) is not really optimal. 
 Therefore a group of great people created a library that includes many useful machine learning algorithms, 
-like clustering, regression, classification and others, like naive-bayes. This library is calles http://scikit-learn.org[*SciKit Learn*].
+like clustering, regression, classification and others, like naive-bayes. This library is called http://scikit-learn.org[*SciKit Learn*].
 
 So now we know of two libraries that can save us hundreds of lines of code and make our code more efficient.
 But one we are still missing is https://pandas.pydata.org/[*Pandas*].
@@ -136,6 +136,7 @@ http://pytorch.org/[PyTorch]::
 * Dynamic graph definition
 * More abstraction
 
+The dynamic graph definition of PyTorch is the reason behind its growing popularity.
 We will be looking at TensorFlow as it has a bigger community and
 has been in use in production for longer than PyTorch.
 
