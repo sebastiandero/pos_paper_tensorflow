@@ -439,10 +439,30 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_foreword">Foreword</a></li>
-<li><a href="#_about_tensorflow">About TensorFlow</a>
-<ul class="sectlevel2">
 <li><a href="#_what_is_tensorflow">What is TensorFlow?</a></li>
-<li><a href="#_why_do_i_need_it">Why do I need it?</a></li>
+<li><a href="#_why_do_i_need_it">Why do I need it?</a>
+<ul class="sectlevel2">
+<li><a href="#_machine_learning_in_python">Machine Learning in Python</a></li>
+<li><a href="#_how_do_feed_forward_anns_work">How do Feed Forward ANNs work?</a>
+<ul class="sectlevel3">
+<li><a href="#_back_propagation">Back propagation</a></li>
+<li><a href="#_deep_learning">Deep Learning</a></li>
+<li><a href="#_how_it_ties_into_tensorflow">How it ties into TensorFlow</a></li>
+</ul>
+</li>
+<li><a href="#_how_can_i_use_it">How can I use it?</a>
+<ul class="sectlevel3">
+<li><a href="#_installing_it_manually">Installing it manually</a>
+<ul class="sectlevel4">
+<li><a href="#_installing_cuda">Installing CUDA</a></li>
+<li><a href="#_installing_tensorflow">Installing TensorFlow</a></li>
+</ul>
+</li>
+<li><a href="#_installing_it_with_anaconda">Installing it with Anaconda</a></li>
+</ul>
+</li>
+<li><a href="#_lets_look_at_some_code">Lets look at some code</a></li>
+<li><a href="#_conclusion">Conclusion</a></li>
 </ul>
 </li>
 </ul>
@@ -480,10 +500,8 @@ deep learning setups with TensorFlow and why you would even want to do that.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_about_tensorflow">About TensorFlow</h2>
+<h2 id="_what_is_tensorflow">What is TensorFlow?</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_what_is_tensorflow">What is TensorFlow?</h3>
 <div class="paragraph">
 <p><a href="https://www.tensorflow.org/">TensorFlow</a> is a computation library written by Google.
 It represents deep learning computations with data flow graphs. In the words of Google on their website:</p>
@@ -499,16 +517,18 @@ data arrays (tensors) communicated between them.
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_why_do_i_need_it">Why do I need it?</h3>
+</div>
+<div class="sect1">
+<h2 id="_why_do_i_need_it">Why do I need it?</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>In deep learning especially, doing it yourself results in a lot of repetitive code.
 In Python, the code base will run quite slowly which is not ideal when you are training on big datasets,
 as this means that your algorithm will be repeating the same task many times to train a set of weights using a training dataset.
 Repetition calls for good performance that Python is just not able to deliver.</p>
 </div>
-<div class="sect3">
-<h4 id="_machine_learning_in_python">Machine Learning in Python</h4>
+<div class="sect2">
+<h3 id="_machine_learning_in_python">Machine Learning in Python</h3>
 <div class="paragraph">
 <p>We can circumvent this by using libraries like <a href="http://www.numpy.org/"><strong>Numpy</strong></a>,
 that import compiled C and C++ libraries to python and offload performance intensive tasks to these compiled libraries.
@@ -530,8 +550,8 @@ But when you want to explore deep learning it gets more complicated.
 Deep learning is a part of machine learning that uses Artificial Neural Networks(<em>ANNs</em>) to simulate a biological learning approach.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_how_do_feed_forward_anns_work">How do Feed Forward ANNs work?</h4>
+<div class="sect2">
+<h3 id="_how_do_feed_forward_anns_work">How do Feed Forward ANNs work?</h3>
 <div class="paragraph">
 <p>ANNs are made up of nodes and connections. The nodes add up all incoming connections and when it reaches a certain treshhold,
 the sum is used as the output of the node. The incoming connections all have a weight assigned to them which the input is multiplied with.</p>
@@ -545,8 +565,8 @@ the sum is used as the output of the node. The incoming connections all have a w
 </div>
 <div class="title">Figure 1: Simple Neural Network</div>
 </div>
-<div class="sect4">
-<h5 id="_back_propagation">Back propagation</h5>
+<div class="sect3">
+<h4 id="_back_propagation">Back propagation</h4>
 <div class="paragraph">
 <p>Back propagation is the fancy term for adjusting the weights through the whole network.
 This is done by predicting a value and then calculating the error between the prediction and the expected value.
@@ -615,8 +635,8 @@ Overfitting is a term used to describe the algorithm being trained so well to a 
 </table>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_deep_learning">Deep Learning</h5>
+<div class="sect3">
+<h4 id="_deep_learning">Deep Learning</h4>
 <div class="paragraph">
 <p>What differenciates deep learning from standard neural networks is that deep learning, as the name implies,
 uses a deep architecture of multiple layers of neural nodes. Some architectures even use a variety of different layer types.</p>
@@ -628,9 +648,261 @@ uses a deep architecture of multiple layers of neural nodes. Some architectures 
 <div class="title">Figure 3: Typical Simple ANN versus a deep learning ANN</div>
 </div>
 <div class="paragraph">
-<p>We will not go into detail about the differnet types of ANNs, but for the curious here is a <a href="https://en.wikipedia.org/wiki/Types_of_artificial_neural_networks">Link</a>.</p>
+<p>We will not go into detail about the differnet types of ANNs, but for the curious here is a
+<a href="https://en.wikipedia.org/wiki/Types_of_artificial_neural_networks">Link</a>.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_how_it_ties_into_tensorflow">How it ties into TensorFlow</h4>
+<div class="paragraph">
+<p>All these concepts might have been something new for you, but either way you now have some knowledge about the basics
+of machine learning in python. As you might have recognized, it is not that bad as long as you stay out of deep learning.
+To be able to simply create more advanced structures we need to look at libaries that alleviate
+the workload that would typically be in order.</p>
+</div>
+<div class="paragraph">
+<p>There are many popular frameworks and libraries in this space
+but these two are the most popular two.
+Lets compare them:</p>
+</div>
+<div class="dlist">
+<div class="title">Deep Learning Libraries</div>
+<dl>
+<dt class="hdlist1"><a href="https://www.tensorflow.org/">TensorFlow</a></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Big community</p>
+</li>
+<li>
+<p>Backed by Google</p>
+</li>
+<li>
+<p>Static graph definition</p>
+</li>
+<li>
+<p>cool visualization</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a href="http://pytorch.org/">PyTorch</a></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Torch is backed by Facebook</p>
+</li>
+<li>
+<p>Relatively new</p>
+</li>
+<li>
+<p>Gaining momentum quickly</p>
+</li>
+<li>
+<p>Dynamic graph definition</p>
+</li>
+<li>
+<p>More abstraction</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>We will be looking at TensorFlow as it has a bigger community and
+has been in use in production for longer than PyTorch.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_use_it">How can I use it?</h3>
+<div class="paragraph">
+<p>When you want to use TensorFlow there are two options I would consider.
+If you know your way around python well enough that you feel comfortable
+dealing with version conflicts and incompatibilities under various Python
+versions then you can go ahead and attempt to get all dependencies up and running
+by yourself. Another possibiliy is to use the <a href="https://www.anaconda.com/what-is-anaconda/">Anaconda</a> Data Science platform
+to have everything running after a simple install.</p>
+</div>
+<div class="sect3">
+<h4 id="_installing_it_manually">Installing it manually</h4>
+<div class="paragraph">
+<p>Installing TensorFlow yourself can be quite a pain.
+First you need to decide if you want GPU support, which can greatly increase the performance
+of your algorithms.</p>
+</div>
+<div class="sect4">
+<h5 id="_installing_cuda">Installing CUDA</h5>
+<div class="paragraph">
+<p>If you decided that you want GPU support and you have an AMD GPU, then tough luck!
+Otherwise, if you own an NVIDIA GPU, you will have to install CUDA.</p>
+</div>
+<div class="ulist">
+<div class="title">What you will need</div>
+<ul>
+<li>
+<p>CUDA Toolkit</p>
+</li>
+<li>
+<p>NVIDIA Drivers associated with the cuda version</p>
+</li>
+<li>
+<p>cuDNN</p>
+</li>
+<li>
+<p>CUDA Compute Capability 3.0 or better GPU</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+Check the <a href="https://www.tensorflow.org/install/install_windows">TensorFlow site</a> for the correct versions
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Follow the instructions on the NVIDIA site and the installers.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+Please note, that the versions are very important, slight deviations can cause
+major headaches
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_installing_tensorflow">Installing TensorFlow</h5>
+<div class="paragraph">
+<p><a href="https://wiki.python.org/moin/BeginnersGuide/Download">Install Python 3.6</a> using the installer or using a package manager.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell"># execute only one command
+# with gpu support
+pip3 install --upgrade tensorflow-gpu
+# without gpu support
+pip3 install --upgrade tensorflow</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_installing_it_with_anaconda">Installing it with Anaconda</h4>
+<div class="paragraph">
+<p>Just follow the installer instructions and use common sense.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lets_look_at_some_code">Lets look at some code</h3>
+<div class="paragraph">
+<p>With your working tensorflow installation we can now get to work.</p>
+</div>
+<div class="listingblock">
+<div class="title">app.py</div>
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">import tensorflow as tf
+
+hello = tf.constant('Hello, TensorFlow!')
+sess = tf.Session()
+print(sess.run(hello))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the code above, which was taken from the install guide of TensorFlow,
+outputs 'Hello, TensorFlow!' or b&#8217;Hello, TensorFlow!' your install is working.</p>
+</div>
+<div class="paragraph">
+<p>There are many
+<a href="https://www.tensorflow.org/tutorials/">code examples for TensorFlow</a>
+on the website, which you can use to understand the code feeling of TensorFlow.</p>
+</div>
+<div class="paragraph">
+<p>Lets look at one of them.</p>
+</div>
+<div class="listingblock">
+<div class="title">linear-classifier.py</div>
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">import time
+
+# Specify the feature(s) to be used by the estimator.
+image_column = tf.contrib.layers.real_valued_column('images', dimension=784)
+estimator = tf.contrib.learn.LinearClassifier(feature_columns=[image_column], n_classes=10)
+
+# Train.
+start = time.time()
+estimator.fit(input_fn=train_input_fn, steps=2000)
+end = time.time()
+print('Elapsed time: {} seconds'.format(end - start))
+
+# Evaluate and report metrics.
+eval_metrics = estimator.evaluate(input_fn=eval_input_fn, steps=1)
+print(eval_metrics)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This creates a simple Linear Classifier that is trained on a training dataset.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">image_column = tf.contrib.layers.real_valued_column('images', dimension=784)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This code creates a image_column, which is a type of layer provided by TensorFlow.
+It is used to define the dimensionality used for the LinearClassifier.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">estimator = tf.contrib.learn.LinearClassifier(feature_columns=[image_column], n_classes=10)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here we create a LinearClassifier with the feature column that we defined above. we specify 10 as the number of classes the classifier will use
+to classify input.
+This means that every input will be assigned one of 10 classes</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">estimator.fit(input_fn=train_input_fn, steps=2000)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This trains the LinearClassifier on a data set.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">eval_metrics = estimator.evaluate(input_fn=eval_input_fn, steps=1)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here we get a prediction from the Classifier.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conclusion">Conclusion</h3>
+<div class="paragraph">
+<p>A good source to continue learning from is the already mentioned <a href="https://www.tensorflow.org/tutorials/">page with code examples</a></p>
+</div>
+<div class="paragraph">
+<p>TensorFlow abstracts and simplifies the workflow when working with machine learning and deep learning algorithms, which we can use
+to provide valuable functionality in our products and projects.</p>
 </div>
 </div>
 </div>
@@ -639,7 +911,7 @@ uses a deep architecture of multiple layers of neural nodes. Some architectures 
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2018-03-19 11:50:52 W. Europe Standard Time
+Last updated 2018-03-19 13:58:59 W. Europe Standard Time
 </div>
 </div>
 </body>
