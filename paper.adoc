@@ -69,13 +69,21 @@ the sum is used as the output of the node. The incoming connections all have a w
 
 These weights are what makes ANNs "`smart`", as they are adjusted to provide the desired output from the node.
 
+.ANNs
+[#img-anns]
+[caption="Figure 1: ",link=https://towardsdatascience.com/applied-deep-learning-part-1-artificial-neural-networks-d7834f67a4f6]
+image::media/ann.png[Artificial Neural Networks, 500, 500]
+
 ===== Back propagation
 Back propagation is the fancy term for adjusting the weights through the whole network.
 This is done by predicting a value and then calculating the error between the prediction and the expected value.
 Then the Feed Forward ANN is walked through backwards by the algorithm, comparing every result with the expected and subtracting the error.
 This is done many times with a big training dataset.
 
-Two hyper parameters come into play here:
+.Backpropagation
+[#img-backpropagation]
+[caption="Figure 2: ",link=https://sebastianraschka.com/images/faq/visual-backpropagation/backpropagation.png]
+image::media/backpropagation.png[Backpropagation, 500, 500]
 
 .Hyper Parameters
 Learning Rate::
@@ -85,13 +93,16 @@ Iterations::
  * is, as the name implies, how often to train on the dataset. The more often this is done the better the prediction
  * a too high number of iterations can again cause overfitting of the dataset
 
+
 TIP: Hyper parameters are parameters that change the behaviour of the algorithm
 
-TIP: Overfitting is a term used to describe the algorithm being trained so well to a specific dataset that it doesnt perform well on new data  
-
+TIP: Overfitting is a term used to describe the algorithm being trained so well to a specific dataset that it doesnt perform well on new data
 
 
 ===== Deep Learning
 
 What differenciates deep learning from standard neural networks is that deep learning, as the name implies,
-uses a deep architecture of multiple layers of neural nodes.
+uses a deep architecture of multiple layers of neural nodes. Some architectures even use a variety of different layer types.
+
+We will not go into detail about the differnet types of ANNs, but for the curious here is a https://en.wikipedia.org/wiki/Types_of_artificial_neural_networks[Link].
+

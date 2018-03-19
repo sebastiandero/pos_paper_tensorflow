@@ -435,16 +435,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="revnumber">version 1.0,</span>
 <span id="revdate">2018-03-18</span>
 </div>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_foreword">Foreword</a></li>
+<li><a href="#_about_tensorflow">About TensorFlow</a>
+<ul class="sectlevel2">
+<li><a href="#_what_is_tensorflow">What is TensorFlow?</a></li>
+<li><a href="#_why_do_i_need_it">Why do I need it?</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>What is it, why you need it, and how you can use it.
-:toc:</p>
-</div>
-</div>
-</div>
 <div class="sect1">
 <h2 id="_foreword">Foreword</h2>
 <div class="sectionbody">
@@ -467,23 +471,157 @@ useful result.</p>
 </div>
 <div class="paragraph">
 <p>In this paper we will look at all the different parts that you need to know to be able to create your own
-machine learning setups with TensorFlow and why you would even want to do that.</p>
+deep learning setups with TensorFlow and why you would even want to do that.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s start by answering the following simple questions:
+<strong><em>What is it? Why do I need it? How can I use it?</em></strong></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_what_is_tensorflow">What is TensorFlow</h2>
+<h2 id="_about_tensorflow">About TensorFlow</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_what_is_tensorflow">What is TensorFlow?</h3>
 <div class="paragraph">
 <p><a href="https://www.tensorflow.org/">TensorFlow</a> is a computation library written by Google.
-It represents machine learning computations with data flow graphs. In the words of Google on their website:</p>
+It represents deep learning computations with data flow graphs. In the words of Google on their website:</p>
 </div>
 <div class="quoteblock">
 <blockquote>
-TensorFlow™ is an open source software library for numerical computation using data flow graphs. Nodes in the graph represent mathematical operations, while the graph edges represent the multidimensional data arrays (tensors) communicated between them.
+TensorFlow™ is an open source software library for numerical computation using data flow graphs.
+Nodes in the graph represent mathematical operations, while the graph edges represent the multidimensional
+data arrays (tensors) communicated between them.
 </blockquote>
 <div class="attribution">
 &#8212; www.tensorflow.org
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_why_do_i_need_it">Why do I need it?</h3>
+<div class="paragraph">
+<p>In deep learning especially, doing it yourself results in a lot of repetitive code.
+In Python, the code base will run quite slowly which is not ideal when you are training on big datasets,
+as this means that your algorithm will be repeating the same task many times to train a set of weights using a training dataset.
+Repetition calls for good performance that Python is just not able to deliver.</p>
+</div>
+<div class="sect3">
+<h4 id="_machine_learning_in_python">Machine Learning in Python</h4>
+<div class="paragraph">
+<p>We can circumvent this by using libraries like <a href="http://www.numpy.org/"><strong>Numpy</strong></a>,
+that import compiled C and C++ libraries to python and offload performance intensive tasks to these compiled libraries.
+This allows for safe and scientific computation in python.</p>
+</div>
+<div class="paragraph">
+<p>But even with these libraries reinventing the <strong><em>wheel</em></strong>(get it?) is not really optimal.
+Therefore a group of great people created a library that includes many useful machine learning algorithms,
+like clustering, regression, classification and others, like naive-bayes. This library is calles <a href="http://scikit-learn.org"><strong>SciKit Learn</strong></a>.</p>
+</div>
+<div class="paragraph">
+<p>So now we know of two libraries that can save us hundreds of lines of code and make our code more efficient.
+But one we are still missing is <a href="https://pandas.pydata.org/"><strong>Pandas</strong></a>.
+Pandas is a data structure and analysis library that we can use to clean our dataset and analyze it.</p>
+</div>
+<div class="paragraph">
+<p>This is all you need to create basic machine learning algorithms that can already do some cool stuff.
+But when you want to explore deep learning it gets more complicated.
+Deep learning is a part of machine learning that uses Artificial Neural Networks(<em>ANNs</em>) to simulate a biological learning approach.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_how_do_feed_forward_anns_work">How do Feed Forward ANNs work?</h4>
+<div class="paragraph">
+<p>ANNs are made up of nodes and connections. The nodes add up all incoming connections and when it reaches a certain treshhold,
+the sum is used as the output of the node. The incoming connections all have a weight assigned to them which the input is multiplied with.</p>
+</div>
+<div class="paragraph">
+<p>These weights are what makes ANNs &#8220;smart&#8221;, as they are adjusted to provide the desired output from the node.</p>
+</div>
+<div id="img-anns" class="imageblock">
+<div class="content">
+<a class="image" href="https://towardsdatascience.com/applied-deep-learning-part-1-artificial-neural-networks-d7834f67a4f6"><img src="media/ann.png" alt="Artificial Neural Networks" width="500" height="500"></a>
+</div>
+<div class="title">Figure 1: ANNs</div>
+</div>
+<div class="sect4">
+<h5 id="_back_propagation">Back propagation</h5>
+<div class="paragraph">
+<p>Back propagation is the fancy term for adjusting the weights through the whole network.
+This is done by predicting a value and then calculating the error between the prediction and the expected value.
+Then the Feed Forward ANN is walked through backwards by the algorithm, comparing every result with the expected and subtracting the error.
+This is done many times with a big training dataset.</p>
+</div>
+<div id="img-backpropagation" class="imageblock">
+<div class="content">
+<a class="image" href="https://sebastianraschka.com/faq/docs/visual-backpropagation.html"><img src="media/backpropagation.png" alt="Backpropagation" width="500" height="500"></a>
+</div>
+<div class="title">Figure 2: Backpropagation</div>
+</div>
+<div class="dlist">
+<div class="title">Hyper Parameters</div>
+<dl>
+<dt class="hdlist1">Learning Rate</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>is a multiplier that is multiplied with the error to form the substracted gradient</p>
+</li>
+<li>
+<p>is used to prevent overfitting the dataset</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Iterations</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>is, as the name implies, how often to train on the dataset. The more often this is done the better the prediction</p>
+</li>
+<li>
+<p>a too high number of iterations can again cause overfitting of the dataset</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+Hyper parameters are parameters that change the behaviour of the algorithm
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+Overfitting is a term used to describe the algorithm being trained so well to a specific dataset that it doesnt perform well on new data
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_deep_learning">Deep Learning</h5>
+<div class="paragraph">
+<p>What differenciates deep learning from standard neural networks is that deep learning, as the name implies,
+uses a deep architecture of multiple layers of neural nodes.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -492,7 +630,7 @@ TensorFlow™ is an open source software library for numerical computation using
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2018-03-18 22:59:37 W. Europe Standard Time
+Last updated 2018-03-19 11:27:30 W. Europe Standard Time
 </div>
 </div>
 </body>
